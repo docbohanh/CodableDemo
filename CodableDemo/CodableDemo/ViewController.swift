@@ -18,7 +18,8 @@ name,age,isMan
 ほげ,25,true
 ふが,100,false
 """
-        let decoder = parseJSON(from: csv)
+        print("Multi-line string:\n \(csv)")
+        let decoder = parseCSV(from: csv)
         dump(decoder)
         
     }
@@ -29,7 +30,7 @@ name,age,isMan
     }
 
     /// Test
-    func parseJSON(from csv: String) -> [Row] {
+    func parseCSV(from csv: String) -> [Row] {
         let decoder = CSVDecoder()
         
         do {
