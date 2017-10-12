@@ -18,9 +18,8 @@ name,age,isMan
 ほげ,25,true
 ふが,100,false
 """
-        let decoder = CSVDecoder()
-        let rows = try! decoder.decode(Row.self, from: csv)
-        dump(rows)
+        let decoder = parseJSON(from: csv)
+        dump(decoder)
         
     }
 
@@ -29,6 +28,18 @@ name,age,isMan
         // Dispose of any resources that can be recreated.
     }
 
+    /// Test
+    func parseJSON(from csv: String) -> [Row] {
+        let decoder = CSVDecoder()
+        
+        do {
+            return try decoder.decode(Row.self, from: csv)
+        } catch {
+            print("error: \(error)")
+        }
+        
+        return []
+    }
 
 }
 
